@@ -1,28 +1,43 @@
-import { Listeners } from '../modules/Listeners.js';
+import Cart from './components/Cart.js';
 
-import { Header } from './components/Header.js';
-import { Cart } from './components/Cart.js';
+class App {
 
-export class App {
-
-    constructor(root)
+    constructor()
     {
-        this.listener = new Listeners();
-        this.header = new Header();
+        this.render(document.getElementById('root'));
         this.cart = new Cart();
-
-        root.innerHTML = this.Render();
-
-        this.listener.AddListener(document.querySelector('#open-cart'), 'click', 'openCart');
     }
 
-    Render()
+    render(root)
     {
-        return `
-            <div>
-                ${this.header.Render().innerHTML}
-                ${this.cart.Render().innerHTML}
-            </div>
+        let output = `
+            <header>
+                <nav>
+                    <div>
+                        <span><i class="fas fa-bars"></i></span>
+                    </div>
+                    <div>
+                        <span>Confy Feriture</span>
+                    </div>
+                    <div>
+                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <div class="cart-counter">
+                            <span>0</span>
+                        </div>
+                    </div>
+                </nav>
+                <div>
+
+                </div>
+            </header>
+            <div id="Cart"></div>
         `;
+
+        
+        // console.log(root);
+        root.insertAdjacentHTML('beforeend', output);
     }
+
 }
+
+export default App;

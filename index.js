@@ -1,3 +1,9 @@
-import { App } from './App/App.js';
+import App from './App/App.js';
 
-const app = new App(document.getElementById('root'));
+const app = new App();
+
+
+
+// const root = document.getElementById('root');
+
+// app.render(root);
